@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+<title>Green Leaves</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="formato.css">
+<script src="angular.min.js"></script>
+<script src="angular-route.min.js"></script>
+<script src="app.js"></script>
+</head>
+<body>
+    <div mgController="MyAppController">
+    <div class="titulo">
+        <h1 id="titulo" style="color:white">Green Leaves <img src="hoja-verde.gif"></h1>
+    </div>
+    <form name="frm" class="panel-body">
+    <div>
+        Nombre:<input id="nombre" ngmodel="nombre" type="text" name="nombre"  ng-required="true" /><br />
+        <span ng-show="nombreInvalido">Por favor, introduzca un nombre</span>
+    </div>
+    <div>
+        E-mail:<input id="email" type="email" name="email" placeholder="Email" ngmodel="usuario.email" ng-required="true"/>
+        <br />
+        <span ng-show="emailInvalido">Por favor, introduzca un email</span>
+    </div>
+    <div ng-controller="numberController">
+        Teléfono:<input id="telefono" type="text" name="telefono" ng-pattern-restrict="^\d+(\.\d{12})?$" ng-required="true"/><br />
+        <span ng-show="TelefonoInvalido">Por favor, introduzca un Telefono</span>
+    </div>
+    <div>
+        Fecha:<input id="fecha" type="text" ngmodel="fecha" name="fecha" ng-required="true"/>
+        <md-datepicker ng-model="user.submissionDate"></md-datepicker>
+        </md-input-container>
+        <br />
+    </div>
+    <div>
+        Ciudad y Estado:<input id="ciudadEstado" type="text" ngmodel="ciudad" name="ciudad" ng-required="true"/><br />
+    </div>
+    <div ng-app="MyApp" ng-controller="MyController">
+
+    </div>
+    <input type="submit" value="Enviar"/>
+</form>
+</div>
+<div>
+    <p>
+        Estimado <nombre de la persona ({nombre})>, <br />
+
+            Hemos recibido sus datos y nos pondremos en contacto con usted en la brevedad posible. Enviaremos un correo con información a su cuenta: <cuenta de correo>.
+            
+            <p> 
+                Atte.
+                Green Leaves
+                ({ciudad}) a({fecha})
+                <Ciudad y Estado> a <fecha>
+            </p>            
+    </p>
+</div>
+</body>
+</html>
