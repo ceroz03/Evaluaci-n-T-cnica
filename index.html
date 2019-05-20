@@ -1,61 +1,35 @@
 <!doctype html>
-<html lang="en" ng-app="validationApp">
+<html lang="en" >
 <head>
 <title>Green Leaves</title>
-<meta charset="utf-8">
-<link rel="stylesheet" href="formato.css">    
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
-<script src="app.js"></script>
-
+<meta charset="UTF-8">
+<link rel="stylesheet" href="formato.css"> 
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<!--
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-animate.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-sanitize.min.js"></script>
+<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
+-->
 </head>
-<body>
-
-<div >
-    <div class="titulo">
-        <h1 id="titulo" style="color:white">Green Leaves <img src="hoja-verde.gif"></h1>
-    </div>
-
-    <form name="registro" ng-submit="registrar()" ng-controller="mainController" novalidate>
-    <div>
-        Nombre:<input id="nombre" ngmodel="nombre" type="text" name="nombre"  required /><br />
-        <p ng-show="nombreInvalido">El nombre es requerido</p>    
-    </div>
-    <div>
-        E-mail:<input id="email" type="email" name="email" placeholder="Email" ngmodel="usuario.email" required/>
-        <br />
-        <span ng-show="emailInvalido">Por favor, introduzca un email</span>
-    </div>
-    <div>
-        Teléfono:<input id="telefono" type="number" name="telefono" ng-model="number" ng-pattern="/^\d{0,9}(\.\d{1,9})?$/" required /><br />
-        <span ng-show="TelefonoInvalido">Por favor, introduzca un Telefono</span>
-    </div>
-    <div ng-app="MyApp">
-        Fecha:<input id="fecha" type="text" ngmodel="fecha" name="fecha" text='"{{ctrl.myDate | date:shortDate}}"' required />
-        <md-content ng-app="MyApp" ng-controller="AppCtrl as ctrl" layout-padding layout-margin>
-                <md-datepicker ng-model="ctrl.myDate" ng-change="ctrl.onDateChanged()"
-                               md-placeholder="Enter date"></md-datepicker>
-        </md-content>
-        <br />
-    </div>
-    <div>
-        Ciudad y Estado:<input id="ciudadEstado" type="text" ngmodel="ciudad" name="ciudad" required/><br />
-    </div>
-    <input type="submit" class="button" value="Enviar" ng-click="submitted=true"/>
-    </form>
-</div>
-<div>
-    <p>
-        Estimado <nombre de la persona ({nombre})>, <br />
-
-            Hemos recibido sus datos y nos pondremos en contacto con usted en la brevedad posible. Enviaremos un correo con información a su cuenta: <cuenta de correo>.
-            
-            <p> 
-                Atte.
-                Green Leaves
-                ({ciudad}) a({fecha})
-                <Ciudad y Estado> a <fecha>
-            </p>            
-    </p>
-</div>
+<body ng-app="EjemploAngularjs">
+	<div ng-controller="ngpatternCtrl">
+		<div>
+			<div ui-view></div>
+		</div>
+	</div>
+	
+	<!-- Angular js -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js"></script>
+	<!-- app   -->
+	<script src="scripts/app.js"></script>
+	<!-- conrtollers -->
+	<script src="scripts/controllers/home.js"></script>
+	<script src="scripts/controllers/validaciones.js"></script>
+	<!-- script -->
+	<script src="scripts/services/home.js"></script>
+	<!-- <script src="scripts/example.js"></script> -->
+	
 </body>
 </html>
+

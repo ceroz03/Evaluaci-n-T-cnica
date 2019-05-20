@@ -1,0 +1,46 @@
+<!-- <div ng-controller="DatepickerPopupDemoCtrl" > -->
+<div>
+<div class="titulo">
+    <h1 id="titulo" style="color:white">Green Leaves <img src="views/hoja-verde.gif"></h1>
+</div>
+<form name="registro" novalidate ng-submit="registro.$valid &&sendForm()" ng-show="showFunction['panel1']", ng-init="showFunction['panel1'] = true" class="check-element sample-show-hide">
+    Nombre:<input name="nombre"  ngmodel="nombre" type="text" required />
+    <span ng-show="registro.nombre.$touched && registro.nombre.$error.required">El nombre es requerido</span>
+    <br />
+    E-mail:<input type="text" name="email" ng-model="email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" required />
+    <span style="color:Red" ng-show="registro.email.$error.required"> requerido </span>
+    <span style="color:Red" ng-show="registro.email.$dirty&&registro.email.$error.pattern">Por favor introduzca un correo electrónico válido</span>
+    <br />
+    Teléfono:<input name="telefono" type="text" ng-model="telefono" ng-pattern="/^[0-9#()+-/s]{1,16}$/" required />
+    <span style="color:Red" ng-show="registro.telefono.$error.required"> requerido </span>
+    <span style="color:Red" ng-show="registro.telefono.$dirty&&registro.nombre.$error.pattern">Sólo se permiten números, máximo 10 caracteres</span>
+    <br />
+    Fecha
+    <!--
+    <input type="text" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+    <button type="button" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+    -->
+    <input  type="date" ng-model="fecha">
+    <br />
+    Ciudad y Estado:<datalist id="ciudad"></datalist> 
+    <input type="text" name="ciudad" list="ciudad" ng-model="ciudad" id="address-input" />
+    <br />
+    <a ng-click="showFunction['panel2'] = !showFunction['panel2']" >
+            <input type="submit" class="button" class="showHideOptions" ng-click="showFunction['panel1'] = !showFunction['panel1']" />
+    </a>
+    
+</form>
+</div>
+<div ng-show="showFunction['panel2']", ng-init="showFunction['panel2'] = false" class="check-element sample-show-hide">
+    <p>
+        Estimado {{ nombre }} , <br />
+        Hemos recibido sus datos y nos pondremos en contacto con usted en la brevedad posible. 
+        Enviaremos un correo con información a su cuenta : {{email}}.
+                            
+        <p> 
+            Atte.<br />
+            Green Leaves<br />
+            {{ciudad}} a {{fecha}}<br />
+        </p>            
+    </p>
+</div>
